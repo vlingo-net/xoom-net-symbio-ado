@@ -1,0 +1,32 @@
+version: 0.0.{build}
+image:
+  - Visual Studio 2019
+  - Ubuntu
+  - macos
+  - macos-mojave
+configuration: Release
+skip_commits:
+  message: /.*\[ci\-skip\].*/
+before_build:
+  - dotnet restore src/Vlingo.Symbio.Ado.sln
+build:
+  project: src/Vlingo.Symbio.Ado.sln
+  verbosity: minimal
+  publish_nuget: true
+test_script:
+  - dotnet test src/Vlingo.Symbio.Ado.Tests
+deploy:
+  - provider: NuGet
+    api_key:
+      secure: KY0BjBNmIhi70FpbfsHfgSGUgrFd/GZ2yl1q1KAPhLy5WJG5E9IGzapA3lce9e/i
+    skip_symbols: true
+    artifact: /.*\.nupkg/
+    on:
+      branch: master
+notifications:
+  - provider: Webhook
+    url: https://webhooks.gitter.im/e/2b56d1ca84637acb9ee8
+    method: POST
+    on_build_success: true
+    on_build_failure: true
+    on_build_status_changed: true
