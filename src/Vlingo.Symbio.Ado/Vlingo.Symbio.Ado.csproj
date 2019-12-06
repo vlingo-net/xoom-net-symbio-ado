@@ -28,9 +28,11 @@
     <ItemGroup>
         <None Include="..\..\vlingo-64x64.png" Pack="true" PackagePath="\" />
         <None Include="..\..\LICENSE" Pack="true" PackagePath="" />
-        <None Update="vlingo-actors.properties">
-          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-        </None>
+    </ItemGroup>
+    <ItemGroup>
+      <PackageReference Include="Vlingo.Actors" Version="0.6.0" />
+      <PackageReference Include="Vlingo.Common" Version="0.6.0" />
+      <PackageReference Include="Vlingo.Symbio" Version="0.1.0" />
     </ItemGroup>
 
 </Project>
