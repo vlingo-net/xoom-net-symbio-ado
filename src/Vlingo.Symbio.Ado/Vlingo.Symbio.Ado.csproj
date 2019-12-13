@@ -30,9 +30,9 @@
         <None Include="..\..\LICENSE" Pack="true" PackagePath="" />
     </ItemGroup>
     <ItemGroup>
-      <PackageReference Include="Vlingo.Actors" Version="0.6.0" />
-      <PackageReference Include="Vlingo.Common" Version="0.6.0" />
-      <PackageReference Include="Vlingo.Symbio" Version="0.1.0" />
+      <PackageReference Include="Vlingo.Actors" Version="0.6.0.2" />
+      <PackageReference Include="Vlingo.Common" Version="0.6.0.2" />
+      <PackageReference Include="Vlingo.Symbio" Version="0.2.0" />
     </ItemGroup>
 
 </Project>
