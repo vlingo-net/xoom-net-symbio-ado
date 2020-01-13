@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Text;
 
 namespace Vlingo.Symbio.Ado.Common.SQLServer
 {
-    public static class SQLServerConfigurationProvider
+    public static class SqlServerConfigurationProvider
     {
         public static ConfigurationInterest Interest => new ConfigurationInterest();
     }
@@ -44,7 +42,7 @@ namespace Vlingo.Symbio.Ado.Common.SQLServer
             catch (Exception ex)
             {
                 Console.WriteLine($"Sql Database {databaseName} count not be created because: {ex.Message}");
-                throw ex;
+                throw;
             }
         }
 
@@ -65,7 +63,7 @@ namespace Vlingo.Symbio.Ado.Common.SQLServer
             catch (Exception ex)
             {
                 Console.WriteLine($"Sql Database {databaseName} count not be dropped because: {ex.Message}");
-                throw ex;
+                throw;
             }
         }
     }

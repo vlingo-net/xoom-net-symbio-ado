@@ -1,4 +1,11 @@
-﻿using System;
+﻿// Copyright © 2012-2020 Vaughn Vernon. All rights reserved.
+//
+// This Source Code Form is subject to the terms of the
+// Mozilla Public License, v. 2.0. If a copy of the MPL
+// was not distributed with this file, You can obtain
+// one at https://mozilla.org/MPL/2.0/.
+
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Text;
@@ -24,13 +31,13 @@ namespace Vlingo.Symbio.Ado.Common
 
         protected ConfigurationInterest Interest;
 
-        public static Configuration cloneOf(Configuration other)
+        public static Configuration CloneOf(Configuration other)
         {
             try
             {
                 return new Configuration(other.databaseType, other.Interest,other.format, other.ConnectionProvider.Url,
                     other.actualDatabaseName, other.ConnectionProvider.Username, other.ConnectionProvider.Password,
-                    other.ConnectionProvider.UseSSL, other.originatorId, other.createTables, other.transactionTimeoutMillis, true);
+                    other.ConnectionProvider.UseSsl, other.originatorId, other.createTables, other.transactionTimeoutMillis, true);
             }
             catch (Exception e)
             {
@@ -42,10 +49,10 @@ namespace Vlingo.Symbio.Ado.Common
         {
             switch (databaseType)
             {
-                case DatabaseType.MySQL:
+                case DatabaseType.MySql:
                     break;
-                case DatabaseType.SQLServer:
-                    return SQLServerConfigurationProvider.Interest;
+                case DatabaseType.SqlServer:
+                    return SqlServerConfigurationProvider.Interest;
                 case DatabaseType.Postgres:
                     break;
             }

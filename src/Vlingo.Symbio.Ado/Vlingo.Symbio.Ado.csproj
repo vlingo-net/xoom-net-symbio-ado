@@ -30,15 +30,10 @@
         <None Include="..\..\LICENSE" Pack="true" PackagePath="" />
     </ItemGroup>
     <ItemGroup>
+      <PackageReference Include="System.Data.SqlClient" Version="4.8.0" />
       <PackageReference Include="Vlingo.Actors" Version="0.6.3.3" />
       <PackageReference Include="Vlingo.Common" Version="0.6.3.3" />
       <PackageReference Include="Vlingo.Symbio" Version="0.3.4" />
-    </ItemGroup>
-    <ItemGroup>
-      <Folder Include="Common\MySQL\" />
-      <Folder Include="Common\Postgres\" />
-      <Folder Include="State\" />
-      <Folder Include="Object\" />
     </ItemGroup>
 
 </Project>

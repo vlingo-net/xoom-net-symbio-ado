@@ -1,4 +1,11 @@
-﻿using System;
+﻿// Copyright © 2012-2020 Vaughn Vernon. All rights reserved.
+//
+// This Source Code Form is subject to the terms of the
+// Mozilla Public License, v. 2.0. If a copy of the MPL
+// was not distributed with this file, You can obtain
+// one at https://mozilla.org/MPL/2.0/.
+
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Security;
@@ -12,7 +19,7 @@ namespace Vlingo.Symbio.Ado.Common
         public string DriverClassname { get; private set; }
         public string Url { get; private set; }
         public string Username { get; private set; }
-        public bool UseSSL { get; private set; }
+        public bool UseSsl { get; private set; }
         public string Password { get; private set; }
 
         public ConnectionProvider(
@@ -21,14 +28,14 @@ namespace Vlingo.Symbio.Ado.Common
                 string databaseName,
                 string username,
                 string password,
-                bool useSSL)
+                bool useSsl)
         {
             DriverClassname = driverClassname;
             Url = url;
             DatabaseName = databaseName;
             Username = username;
             Password = password;
-            UseSSL = useSSL;
+            UseSsl = useSsl;
         }
 
         /**
@@ -49,7 +56,7 @@ namespace Vlingo.Symbio.Ado.Common
                 var sqlConnectionStringBuilder = new SqlConnectionStringBuilder
                 {
                     InitialCatalog = DatabaseName,
-                    Encrypt = UseSSL
+                    Encrypt = UseSsl
                 };
 
                 var connection = new SqlConnection(sqlConnectionStringBuilder.ConnectionString, sqlCredentials);
@@ -68,7 +75,7 @@ namespace Vlingo.Symbio.Ado.Common
          */
         public ConnectionProvider CopyReplacing(string databaseName)
         {
-            return new ConnectionProvider(DriverClassname, Url, databaseName, Username, Password, UseSSL);
+            return new ConnectionProvider(DriverClassname, Url, databaseName, Username, Password, UseSsl);
         }
     }
 }
