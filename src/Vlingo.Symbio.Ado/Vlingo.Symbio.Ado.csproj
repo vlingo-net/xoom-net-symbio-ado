@@ -34,5 +34,11 @@
       <PackageReference Include="Vlingo.Common" Version="0.6.3.3" />
       <PackageReference Include="Vlingo.Symbio" Version="0.3.4" />
     </ItemGroup>
+    <ItemGroup>
+      <Folder Include="Common\MySQL\" />
+      <Folder Include="Common\Postgres\" />
+      <Folder Include="State\" />
+      <Folder Include="Object\" />
+    </ItemGroup>
 
 </Project>
