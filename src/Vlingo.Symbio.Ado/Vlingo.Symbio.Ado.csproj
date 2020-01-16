@@ -31,9 +31,9 @@
     </ItemGroup>
     <ItemGroup>
       <PackageReference Include="System.Data.SqlClient" Version="4.8.0" />
-      <PackageReference Include="Vlingo.Actors" Version="0.6.3.4" />
-      <PackageReference Include="Vlingo.Common" Version="0.6.3.4" />
-      <PackageReference Include="Vlingo.Symbio" Version="0.3.5" />
+      <PackageReference Include="Vlingo.Actors" Version="0.6.3.5" />
+      <PackageReference Include="Vlingo.Common" Version="0.6.3.5" />
+      <PackageReference Include="Vlingo.Symbio" Version="0.3.6" />
     </ItemGroup>
 
 </Project>
