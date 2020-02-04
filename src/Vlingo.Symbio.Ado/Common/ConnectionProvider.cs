@@ -6,13 +6,15 @@
 // one at https://mozilla.org/MPL/2.0/.
 
 using System;
-using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Security;
-using System.Text;
 
 namespace Vlingo.Symbio.Ado.Common
 {
+    /// <summary>
+    /// Provider of <see cref="IDbConnection"/> instances.
+    /// </summary>
     public class ConnectionProvider
     {
         public string DatabaseName { get; private set; }
@@ -37,12 +39,13 @@ namespace Vlingo.Symbio.Ado.Common
             Password = password;
             UseSsl = useSsl;
         }
-
-        /**
-         * Answer a new instance of a {@code Connection}.
-         * @return Connection
-         */
-        public SqlConnection Connection()
+        
+        /// <summary>
+        /// Answer a new instance of a <see cref="IDbConnection"/>
+        /// </summary>
+        /// <returns>A instance of <see cref="IDbConnection"/> connection</returns>
+        /// <exception cref="InvalidOperationException"></exception>
+        public IDbConnection Connection()
         {
             try
             {
@@ -67,12 +70,7 @@ namespace Vlingo.Symbio.Ado.Common
                 throw new InvalidOperationException(this.GetType().Name + ": Cannot connect because database unavailable or wrong credentials.");
             }
         }
-
-        /**
-         * Answer a copy of me but with the given {@code databaseName}.
-         * @param databaseName the string name of the database with which to create the new ConnectionProvider
-         * @return ConnectionProvider
-         */
+        
         public ConnectionProvider CopyReplacing(string databaseName)
         {
             return new ConnectionProvider(DriverClassname, Url, databaseName, Username, Password, UseSsl);
