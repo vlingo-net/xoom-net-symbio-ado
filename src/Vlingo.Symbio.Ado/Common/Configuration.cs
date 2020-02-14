@@ -12,6 +12,7 @@ using System.Data.SqlClient;
 using System.Text;
 using Vlingo.Common;
 using Vlingo.Symbio.Ado.Common;
+using Vlingo.Symbio.Ado.Common.SqlServer;
 using Vlingo.Symbio.Ado.Common.SQLServer;
 using Vlingo.Symbio.Store;
 
@@ -44,7 +45,7 @@ namespace Vlingo.Symbio.Ado.Common
 
         private readonly string _actualDatabaseName;
         private IDbConnection _connection;
-        private ConnectionProvider _connectionProvider;
+        private SqlConnectionProvider _connectionProvider;
         private DatabaseType _databaseType;
         private readonly IConfigurationInterest _interest;
         private DataFormat _format;
@@ -58,13 +59,14 @@ namespace Vlingo.Symbio.Ado.Common
         {
             try
             {
-                return new Configuration(other._databaseType, other.Interest,other._format, other._connectionProvider.Url,
+                return new Configuration(other._databaseType, other.Interest, other._connectionProvider.DriverClassname, other._format, other._connectionProvider.Url,
                     other._actualDatabaseName, other._connectionProvider.Username, other._connectionProvider.Password,
                     other._connectionProvider.UseSsl, other._originatorId, other._createTables, other._transactionTimeoutMillis, true);
             }
             catch (Exception e)
             {
-                throw new InvalidOperationException("Cannot clone the configuration for " + other._connectionProvider.Url + " because: " + e.Message, e);
+                throw new InvalidOperationException(
+                    $"Cannot clone the configuration for {other._connectionProvider.Url} because: {e.Message}", e);
             }
         }
 
@@ -80,12 +82,29 @@ namespace Vlingo.Symbio.Ado.Common
                     break;
             }
 
-            throw new InvalidOperationException("Database currently not supported: " + databaseType.ToString());
+            throw new InvalidOperationException($"Database currently not supported: {databaseType}");
         }
 
         public Configuration(
+            DatabaseType databaseType,
+            IConfigurationInterest interest,
+            string driverClassname,
+            DataFormat format,
+            string url,
+            string databaseName,
+            string username,
+            string password,
+            bool useSsl,
+            string originatorId,
+            bool createTables) : this(databaseType, interest, driverClassname, format, url, databaseName, username, password,
+            useSsl, originatorId, createTables, DefaultTransactionTimeout)
+        {
+        }
+        
+        public Configuration(
                  DatabaseType databaseType,
                  IConfigurationInterest interest,
+                 string driverClassname,
                  DataFormat format,
                  string url,
                  string databaseName,
@@ -94,15 +113,15 @@ namespace Vlingo.Symbio.Ado.Common
                  bool useSsl,
                  string originatorId,
                  bool createTables,
-                 long transactionTimeoutMillis)
+                 long transactionTimeoutMillis) : this(databaseType, interest, driverClassname, format, url, databaseName, username, password,
+            useSsl, originatorId, createTables, transactionTimeoutMillis, false)
         {
-            /*this(databaseType, interest, driverClassname, format, url, databaseName, username, password,
-                    useSSL, originatorId, createTables, DefaultTransactionTimeout);*/
         }
 
-        public Configuration(
+        private Configuration(
                  DatabaseType databaseType,
                  IConfigurationInterest interest,
+                 string driverClassname,
                  DataFormat format,
                  string url,
                  string databaseName,
@@ -114,27 +133,6 @@ namespace Vlingo.Symbio.Ado.Common
                  long transactionTimeoutMillis,
                  bool reuseDatabaseName)
         {
-            _databaseType = databaseType;
-            _interest = interest;
-            _format = format;
-            // _connectionProvider = new ConnectionProvider();
-        }
-
-        private Configuration(
-                 DatabaseType databaseType,
-                 IConfigurationInterest interest,
-                 DataFormat format,
-                 string url,
-                 string databaseName,
-                 string username,
-                 string password,
-                 bool useSSL,
-                 string originatorId,
-                 bool createTables,
-                 long transactionTimeoutMillis,
-                 bool reuseDatabaseName, string actualDatabaseName)
-        {
-            _actualDatabaseName = actualDatabaseName;
             /*
                 this.databaseType = databaseType;
                 this.interest = interest;
