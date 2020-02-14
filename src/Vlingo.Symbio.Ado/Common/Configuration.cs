@@ -59,7 +59,7 @@ namespace Vlingo.Symbio.Ado.Common
         {
             try
             {
-                return new Configuration(other._databaseType, other.Interest, other._connectionProvider.DriverClassname, other._format, other._connectionProvider.Url,
+                return new Configuration(other._databaseType, other.Interest, other._format, other._connectionProvider.Url,
                     other._actualDatabaseName, other._connectionProvider.Username, other._connectionProvider.Password,
                     other._connectionProvider.UseSsl, other._originatorId, other._createTables, other._transactionTimeoutMillis, true);
             }
@@ -88,7 +88,6 @@ namespace Vlingo.Symbio.Ado.Common
         public Configuration(
             DatabaseType databaseType,
             IConfigurationInterest interest,
-            string driverClassname,
             DataFormat format,
             string url,
             string databaseName,
@@ -96,7 +95,7 @@ namespace Vlingo.Symbio.Ado.Common
             string password,
             bool useSsl,
             string originatorId,
-            bool createTables) : this(databaseType, interest, driverClassname, format, url, databaseName, username, password,
+            bool createTables) : this(databaseType, interest, format, url, databaseName, username, password,
             useSsl, originatorId, createTables, DefaultTransactionTimeout)
         {
         }
@@ -104,7 +103,6 @@ namespace Vlingo.Symbio.Ado.Common
         public Configuration(
                  DatabaseType databaseType,
                  IConfigurationInterest interest,
-                 string driverClassname,
                  DataFormat format,
                  string url,
                  string databaseName,
@@ -113,7 +111,7 @@ namespace Vlingo.Symbio.Ado.Common
                  bool useSsl,
                  string originatorId,
                  bool createTables,
-                 long transactionTimeoutMillis) : this(databaseType, interest, driverClassname, format, url, databaseName, username, password,
+                 long transactionTimeoutMillis) : this(databaseType, interest, format, url, databaseName, username, password,
             useSsl, originatorId, createTables, transactionTimeoutMillis, false)
         {
         }
@@ -121,7 +119,6 @@ namespace Vlingo.Symbio.Ado.Common
         private Configuration(
                  DatabaseType databaseType,
                  IConfigurationInterest interest,
-                 string driverClassname,
                  DataFormat format,
                  string url,
                  string databaseName,

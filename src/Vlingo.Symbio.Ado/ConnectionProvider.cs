@@ -7,20 +7,19 @@
 
 using System;
 using System.Data;
+using Vlingo.Symbio.Ado.Common;
 
 namespace Vlingo.Symbio.Ado
 {
     public abstract class ConnectionProvider
-    {
+    {    
         public ConnectionProvider(
-            string driverClassname,
             string url,
             string databaseName,
             string username,
             string password,
             bool useSsl)
         {
-            DriverClassname = driverClassname;
             Url = url;
             DatabaseName = databaseName;
             Username = username;
@@ -29,7 +28,6 @@ namespace Vlingo.Symbio.Ado
         }
 
         public string DatabaseName { get; }
-        public string DriverClassname { get; }
         public string Url { get; }
         public string Username { get; }
         public bool UseSsl { get; }

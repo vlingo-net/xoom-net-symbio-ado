@@ -18,12 +18,11 @@ namespace Vlingo.Symbio.Ado.Common.SqlServer
     public class SqlConnectionProvider : ConnectionProvider
     {
         public SqlConnectionProvider(
-            string driverClassname,
             string url,
             string databaseName,
             string username,
             string password,
-            bool useSsl) : base(driverClassname, url, databaseName, username, password, useSsl)
+            bool useSsl) : base(url, databaseName, username, password, useSsl)
         {
         }
         
@@ -55,13 +54,13 @@ namespace Vlingo.Symbio.Ado.Common.SqlServer
             catch (Exception e)
             {
                 throw new InvalidOperationException(
-                    $"{GetType().Name}: Cannot connect because database unavailable or wrong credentials.");
+                    $"{GetType().Name}: Cannot connect because database unavailable or wrong credentials.", e);
             }
         }
         
         public override ConnectionProvider CopyReplacing(string databaseName)
         {
-            return new SqlConnectionProvider(DriverClassname, Url, databaseName, Username, Password, UseSsl);
+            return new SqlConnectionProvider(Url, databaseName, Username, Password, UseSsl);
         }
     }
 }
