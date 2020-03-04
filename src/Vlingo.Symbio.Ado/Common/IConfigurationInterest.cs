@@ -5,18 +5,15 @@
 // was not distributed with this file, You can obtain
 // one at https://mozilla.org/MPL/2.0/.
 
-using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Text;
+using System.Data;
 
 namespace Vlingo.Symbio.Ado.Common
 {
     public interface IConfigurationInterest
     {
-        void AfterConnect(SqlConnection connection);
+        void AfterConnect(IDbConnection connection);
         void BeforeConnect(Configuration configuration);
-        void CreateDatabase(SqlConnection connection, string databaseName);
-        void DropDatabase(SqlConnection connection, string databaseName);
+        void CreateDatabase(IDbConnection connection, string databaseName);
+        void DropDatabase(IDbConnection connection, string databaseName);
     }
 }

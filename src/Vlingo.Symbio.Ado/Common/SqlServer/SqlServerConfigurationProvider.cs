@@ -1,31 +1,29 @@
-﻿using System;
+﻿// Copyright © 2012-2020 Vaughn Vernon. All rights reserved.
+//
+// This Source Code Form is subject to the terms of the
+// Mozilla Public License, v. 2.0. If a copy of the MPL
+// was not distributed with this file, You can obtain
+// one at https://mozilla.org/MPL/2.0/.
+
+using System;
 using System.Data;
 using System.Data.SqlClient;
 
 namespace Vlingo.Symbio.Ado.Common.SQLServer
 {
-    public static class SqlServerConfigurationProvider
+    public class SqlServerConfigurationProvider : IConfigurationInterest
     {
-        public static ConfigurationInterest Interest => new ConfigurationInterest();
-    }
-
-    public class ConfigurationInterest: IConfigurationInterest
-    {
-        public ConfigurationInterest()
+        public static IConfigurationInterest Interest => new SqlServerConfigurationProvider();
+        
+        public void AfterConnect(IDbConnection connection)
         {
-        }
-
-        public void AfterConnect(SqlConnection connection)
-        {
-            throw new NotImplementedException();
         }
 
         public void BeforeConnect(Configuration configuration)
         {
-            throw new NotImplementedException();
         }
 
-        public void CreateDatabase(SqlConnection sqlConnection, string databaseName)
+        public void CreateDatabase(IDbConnection sqlConnection, string databaseName)
         {
             try
             {
@@ -33,7 +31,7 @@ namespace Vlingo.Symbio.Ado.Common.SQLServer
                 {
                     sqlConnection.Open();
                     var createDatabaseQuery = "exec ('CREATE DATABASE ' + @databaseName)";
-                    var sqlCommand = new SqlCommand(createDatabaseQuery, sqlConnection);
+                    var sqlCommand = new SqlCommand(createDatabaseQuery, (SqlConnection)sqlConnection);
                     sqlCommand.Parameters.Add("@databaseName", SqlDbType.Text);
                     sqlCommand.Parameters["@databaseName"].Value = databaseName;
                     sqlCommand.ExecuteNonQuery();
@@ -46,7 +44,7 @@ namespace Vlingo.Symbio.Ado.Common.SQLServer
             }
         }
 
-        public void DropDatabase(SqlConnection sqlConnection, string databaseName)
+        public void DropDatabase(IDbConnection sqlConnection, string databaseName)
         {
             try
             {
@@ -54,7 +52,7 @@ namespace Vlingo.Symbio.Ado.Common.SQLServer
                 {
                     sqlConnection.Open();
                     var createDatabaseQuery = "exec ('DROP DATABASE ' + @databaseName)";
-                    var sqlCommand = new SqlCommand(createDatabaseQuery, sqlConnection);
+                    var sqlCommand = new SqlCommand(createDatabaseQuery, (SqlConnection)sqlConnection);
                     sqlCommand.Parameters.Add("@databaseName", SqlDbType.Text);
                     sqlCommand.Parameters["@databaseName"].Value = databaseName;
                     sqlCommand.ExecuteNonQuery();
