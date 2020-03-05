@@ -19,6 +19,7 @@
         <PackageIcon>vlingo-64x64.png</PackageIcon>
         <RepositoryUrl>https://github.com/vlingo-net/vlingo-net-symbio</RepositoryUrl>
         <PackageTags>vlingo-net-symbio;.net;c#;f#;reactive-programming;actors;actor-model;reactive;persistence;netstandard;ado.net</PackageTags>
+        <Configurations>Debug;Release;Debug With Project References</Configurations>
     </PropertyGroup>
     <ItemGroup>
         <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
@@ -32,9 +33,19 @@
     <ItemGroup>
       <PackageReference Include="System.Data.SqlClient" Version="4.8.0" />
       <PackageReference Include="System.Data.SQLite.Core" Version="1.0.112" />
-      <PackageReference Include="Vlingo.Actors" Version="0.6.4.6" />
-      <PackageReference Include="Vlingo.Common" Version="0.6.4.6" />
-      <PackageReference Include="Vlingo.Symbio" Version="0.4.6" />
     </ItemGroup>
-
+    <Choose>
+        <When Condition="'$(Configuration)' == 'Debug With Project References'">
+            <ItemGroup>
+                <ProjectReference Include="..\..\..\vlingo-net-symbio\src\Vlingo.Symbio\Vlingo.Symbio.csproj" />
+            </ItemGroup>
+        </When>
+        <Otherwise>
+            <ItemGroup>
+                <PackageReference Include="Vlingo.Actors" Version="$(VlingoVersion)" />
+                <PackageReference Include="Vlingo.Common" Version="$(VlingoVersion)" />
+                <PackageReference Include="Vlingo.Symbio" Version="0.4.1" />
+            </ItemGroup>
+        </Otherwise>
+    </Choose>
 </Project>
