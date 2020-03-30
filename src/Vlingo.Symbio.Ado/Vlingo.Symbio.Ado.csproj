@@ -44,7 +44,7 @@
             <ItemGroup>
                 <PackageReference Include="Vlingo.Actors" Version="$(VlingoVersion)" />
                 <PackageReference Include="Vlingo.Common" Version="$(VlingoVersion)" />
-                <PackageReference Include="Vlingo.Symbio" Version="0.5.0" />
+                <PackageReference Include="Vlingo.Symbio" Version="0.6.0" />
             </ItemGroup>
         </Otherwise>
     </Choose>
