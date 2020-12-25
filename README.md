@@ -1,6 +1,7 @@
 # vlingo-net-symbio-ado
 
 [![Build status](https://ci.appveyor.com/api/projects/status/ug298v7ucwsvpj84?svg=true)](https://ci.appveyor.com/project/VlingoNetOwner/vlingo-net-symbio-ado)
+![Build master](https://github.com/vlingo-net/vlingo-net-symbio-ado/workflows/.NET/badge.svg)
 [![NuGet](https://img.shields.io/nuget/v/Vlingo.Symbio.Ado.svg)](https://www.nuget.org/packages/Vlingo.Symbio.Ado)
 [![Gitter](https://badges.gitter.im/vlingo-platform-net/community.svg)](https://gitter.im/vlingo-platform-net/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
