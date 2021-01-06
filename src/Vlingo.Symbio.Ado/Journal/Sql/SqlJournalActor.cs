@@ -10,12 +10,18 @@ using System.Collections.Generic;
 using System.Text;
 using Vlingo.Actors;
 using Vlingo.Common;
+using Vlingo.Symbio.Store.Dispatch;
 using Vlingo.Symbio.Store.Journal;
 
 namespace Vlingo.Symbio.Ado.Journal.Sql
 {
     public class SqlJournalActor : Actor, IJournal<string>
     {
+        public IJournal<string> Using<TActor, TEntry, TState>(Stage stage, IEnumerable<IDispatcher<Dispatchable<TEntry, TState>>> dispatchers, params object[] additional) where TActor : Actor where TEntry : IEntry<string> where TState : class, IState
+        {
+            throw new NotImplementedException();
+        }
+
         public void Append<TSource, TSnapshotState>(string streamName, int streamVersion, TSource source, IAppendResultInterest interest, object @object) where TSource : Source
         {
             throw new NotImplementedException();
