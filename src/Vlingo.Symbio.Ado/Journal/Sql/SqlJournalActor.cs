@@ -16,7 +16,7 @@ namespace Vlingo.Symbio.Ado.Journal.Sql
 {
     public class SqlJournalActor : Actor, IJournal<string>
     {
-        public IJournal<string> Using<TActor, TEntry, TState>(Stage stage, IEnumerable<IDispatcher<IDispatchable<TEntry, TState>>> dispatchers, params object[] additional) where TActor : Actor where TEntry : IEntry<string> where TState : class, IState
+        public IJournal<string> Using<TActor, TEntry, TState>(Stage stage, IEnumerable<IDispatcher<Dispatchable<TEntry, TState>>> dispatchers, params object[] additional) where TActor : Actor where TEntry : IEntry<string> where TState : class, IState
         {
             throw new NotImplementedException();
         }
@@ -71,7 +71,7 @@ namespace Vlingo.Symbio.Ado.Journal.Sql
             throw new NotImplementedException();
         }
 
-        IJournal<string> IJournal<string>.Using<TActor, TEntry, TState>(Stage stage, IDispatcher<IDispatchable<TEntry, TState>> dispatcher, params object[] additional)
+        IJournal<string> IJournal<string>.Using<TActor, TEntry, TState>(Stage stage, IDispatcher<Dispatchable<TEntry, TState>> dispatcher, params object[] additional)
         {
             throw new NotImplementedException();
         }
