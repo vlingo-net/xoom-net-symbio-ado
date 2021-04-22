@@ -8,7 +8,7 @@
 using System;
 using System.Collections.Generic;
 using Vlingo.Actors;
-using Vlingo.Common;
+using Vlingo.Xoom.Common;
 using Vlingo.Symbio.Store.Journal;
 using IDispatcher = Vlingo.Symbio.Store.Dispatch.IDispatcher;
 
