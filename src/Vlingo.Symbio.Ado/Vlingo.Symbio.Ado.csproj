@@ -42,7 +42,7 @@
         </When>
         <Otherwise>
             <ItemGroup>
-                <PackageReference Include="Vlingo.Actors" Version="$(VlingoVersion)" />
+                <PackageReference Include="Vlingo.Xoom.Actors" Version="$(VlingoVersion)" />
                 <PackageReference Include="Vlingo.Xoom.Common" Version="$(VlingoVersion)" />
                 <PackageReference Include="Vlingo.Symbio" Version="$(VlingoVersion)" />
             </ItemGroup>
