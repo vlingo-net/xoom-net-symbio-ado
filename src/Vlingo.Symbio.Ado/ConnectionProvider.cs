@@ -7,7 +7,6 @@
 
 using System;
 using System.Data;
-using Vlingo.Symbio.Ado.Common;
 
 namespace Vlingo.Symbio.Ado
 {

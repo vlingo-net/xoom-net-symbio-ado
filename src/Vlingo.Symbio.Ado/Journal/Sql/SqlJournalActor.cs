@@ -8,9 +8,10 @@
 using System;
 using System.Collections.Generic;
 using Vlingo.Xoom.Common;
-using Vlingo.Symbio.Store.Journal;
+using Vlingo.Xoom.Symbio.Store.Journal;
 using Vlingo.Xoom.Actors;
-using IDispatcher = Vlingo.Symbio.Store.Dispatch.IDispatcher;
+using Vlingo.Xoom.Symbio;
+using IDispatcher = Vlingo.Xoom.Symbio.Store.Dispatch.IDispatcher;
 
 namespace Vlingo.Symbio.Ado.Journal.Sql
 {

@@ -15,10 +15,10 @@
         </Description>
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
         <PackageLicenseFile>LICENSE</PackageLicenseFile>
-        <PackageProjectUrl>https://github.com/vlingo-net/vlingo-net-symbio</PackageProjectUrl>
+        <PackageProjectUrl>https://github.com/vlingo-net/xoom-net-symbio-ado</PackageProjectUrl>
         <PackageIcon>vlingo-64x64.png</PackageIcon>
-        <RepositoryUrl>https://github.com/vlingo-net/vlingo-net-symbio</RepositoryUrl>
-        <PackageTags>vlingo-net-symbio;.net;c#;f#;reactive-programming;actors;actor-model;reactive;persistence;netstandard;ado.net</PackageTags>
+        <RepositoryUrl>https://github.com/vlingo-net/xoom-net-symbio-ado</RepositoryUrl>
+        <PackageTags>xoom-net-symbio;.net;c#;f#;reactive-programming;actors;actor-model;reactive;persistence;netstandard;ado.net</PackageTags>
         <Configurations>Debug;Release;Debug With Project References</Configurations>
     </PropertyGroup>
     <ItemGroup>
@@ -37,14 +37,14 @@
     <Choose>
         <When Condition="'$(Configuration)' == 'Debug With Project References'">
             <ItemGroup>
-                <ProjectReference Include="..\..\..\vlingo-net-symbio\src\Vlingo.Symbio\Vlingo.Symbio.csproj" />
+                <ProjectReference Include="..\..\..\xoom-net-symbio\src\Vlingo.Xoom.Symbio\Vlingo.Xoom.Symbio.csproj" />
             </ItemGroup>
         </When>
         <Otherwise>
             <ItemGroup>
                 <PackageReference Include="Vlingo.Xoom.Actors" Version="$(VlingoVersion)" />
                 <PackageReference Include="Vlingo.Xoom.Common" Version="$(VlingoVersion)" />
-                <PackageReference Include="Vlingo.Symbio" Version="$(VlingoVersion)" />
+                <PackageReference Include="Vlingo.Xoom.Symbio" Version="$(VlingoVersion)" />
             </ItemGroup>
         </Otherwise>
     </Choose>

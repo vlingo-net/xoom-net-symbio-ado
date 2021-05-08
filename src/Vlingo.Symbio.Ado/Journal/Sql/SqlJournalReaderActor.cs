@@ -10,8 +10,9 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using Vlingo.Xoom.Common;
 using Vlingo.Symbio.Ado.Common;
-using Vlingo.Symbio.Store.Journal;
+using Vlingo.Xoom.Symbio.Store.Journal;
 using Vlingo.Xoom.Actors;
+using Vlingo.Xoom.Symbio;
 
 namespace Vlingo.Symbio.Ado.Journal.Sql
 {

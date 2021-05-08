@@ -14,7 +14,7 @@ using Vlingo.Xoom.Common;
 using Vlingo.Symbio.Ado.Common;
 using Vlingo.Symbio.Ado.Common.SqlServer;
 using Vlingo.Symbio.Ado.Common.SQLServer;
-using Vlingo.Symbio.Store;
+using Vlingo.Xoom.Symbio.Store;
 
 namespace Vlingo.Symbio.Ado.Common
 {
@@ -37,8 +37,8 @@ namespace Vlingo.Symbio.Ado.Common
         /// time between creation of the {@code UnitOfWork} and its expiration:
         /// </para>
         /// <para>
-        /// <code>Vlingo.Symbio.Store.Object.ObjectStoreDelegate</code>
-        /// <code>Vlingo.Symbio.Store.Object.UnitOfWork</code>
+        /// <code>Vlingo.Xoom.Symbio.Store.Object.ObjectStoreDelegate</code>
+        /// <code>Vlingo.Xoom.Symbio.Store.Object.UnitOfWork</code>
         /// </para>
         /// </summary>
         public static long DefaultTransactionTimeout = 5 * 60 * 1000L; // 5 minutes
