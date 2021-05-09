@@ -7,8 +7,8 @@
 
         <!-- NuGet Metadata -->
         <IsPackable>true</IsPackable>
-        <PackageVersion>0.1.5</PackageVersion>
-        <PackageId>Vlingo.Symbio.Ado</PackageId>
+        <PackageVersion>0.1.6</PackageVersion>
+        <PackageId>Vlingo.Xoom.Symbio.Ado</PackageId>
         <Authors>Vlingo</Authors>
         <Description>
             The reactive, scalable, and resilient Object, CQRS, and Event Sourcing storage and projection tool built on top of ADO.NET for services and applications built on the vlingo/platform.

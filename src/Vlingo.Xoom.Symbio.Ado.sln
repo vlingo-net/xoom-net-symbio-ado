@@ -1,8 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vlingo.Symbio.Ado", "Vlingo.Symbio.Ado\Vlingo.Symbio.Ado.csproj", "{EB3C37A3-544E-42B7-9B68-00E6C0E65EAD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vlingo.Xoom.Symbio.Ado", "Vlingo.Xoom.Symbio.Ado\Vlingo.Xoom.Symbio.Ado.csproj", "{EB3C37A3-544E-42B7-9B68-00E6C0E65EAD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vlingo.Symbio.Ado.Tests", "Vlingo.Symbio.Ado.Tests\Vlingo.Symbio.Ado.Tests.csproj", "{0154307E-1F16-4F88-8F0E-A5D4AEBCCD5A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vlingo.Xoom.Symbio.Ado.Tests", "Vlingo.Xoom.Symbio.Ado.Tests\Vlingo.Xoom.Symbio.Ado.Tests.csproj", "{0154307E-1F16-4F88-8F0E-A5D4AEBCCD5A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
