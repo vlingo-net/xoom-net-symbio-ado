@@ -16,7 +16,7 @@ using Vlingo.Xoom.Symbio;
 
 namespace Vlingo.Symbio.Ado.Journal.Sql
 {
-    public class SqlJournalReaderActor : Actor, IJournalReader<TextEntry>
+    public class SqlJournalReaderActor : Actor, IJournalReader
     {
         private SqlConnection _connection;
         private DatabaseType _databaseType;
@@ -43,22 +43,22 @@ namespace Vlingo.Symbio.Ado.Journal.Sql
             throw new NotImplementedException();
         }
 
-        public ICompletes<TextEntry> ReadNext()
+        public ICompletes<IEntry> ReadNext()
         {
             throw new NotImplementedException();
         }
 
-        public ICompletes<TextEntry> ReadNext(string fromId)
+        public ICompletes<IEntry> ReadNext(string fromId)
         {
             throw new NotImplementedException();
         }
 
-        public ICompletes<IEnumerable<TextEntry>> ReadNext(int maximumEntries)
+        public ICompletes<IEnumerable<IEntry>> ReadNext(int maximumEntries)
         {
             throw new NotImplementedException();
         }
 
-        public ICompletes<IEnumerable<TextEntry>> ReadNext(string fromId, int maximumEntries)
+        public ICompletes<IEnumerable<IEntry>> ReadNext(string fromId, int maximumEntries)
         {
             throw new NotImplementedException();
         }

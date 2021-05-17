@@ -62,7 +62,7 @@ namespace Vlingo.Symbio.Ado.Journal.Sql
             throw new NotImplementedException();
         }
 
-        public ICompletes<IJournalReader<IEntry>?> JournalReader(string name)
+        public ICompletes<IJournalReader?> JournalReader(string name)
         {
             throw new NotImplementedException();
         }
