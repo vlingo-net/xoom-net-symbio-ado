@@ -32,7 +32,7 @@
     </ItemGroup>
     <ItemGroup>
       <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
-      <PackageReference Include="System.Data.SQLite.Core" Version="1.0.113.7" />
+      <PackageReference Include="System.Data.SQLite.Core" Version="1.0.114.2" />
     </ItemGroup>
     <Choose>
         <When Condition="'$(Configuration)' == 'Debug With Project References'">
