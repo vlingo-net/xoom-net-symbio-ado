@@ -9,7 +9,7 @@ using System;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace Vlingo.Symbio.Ado.Common.SQLServer
+namespace Vlingo.Xoom.Symbio.Ado.Common.SqlServer
 {
     public class SqlServerConfigurationProvider : IConfigurationInterest
     {

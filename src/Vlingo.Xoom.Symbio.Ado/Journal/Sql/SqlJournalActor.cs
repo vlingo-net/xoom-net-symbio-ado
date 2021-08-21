@@ -7,13 +7,12 @@
 
 using System;
 using System.Collections.Generic;
+using Vlingo.Xoom.Actors;
 using Vlingo.Xoom.Common;
 using Vlingo.Xoom.Symbio.Store.Journal;
-using Vlingo.Xoom.Actors;
-using Vlingo.Xoom.Symbio;
 using IDispatcher = Vlingo.Xoom.Symbio.Store.Dispatch.IDispatcher;
 
-namespace Vlingo.Symbio.Ado.Journal.Sql
+namespace Vlingo.Xoom.Symbio.Ado.Journal.Sql
 {
     public class SqlJournalActor : Actor, IJournal<string>
     {

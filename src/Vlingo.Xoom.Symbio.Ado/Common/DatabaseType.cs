@@ -5,7 +5,7 @@
 // was not distributed with this file, You can obtain
 // one at https://mozilla.org/MPL/2.0/.
 
-namespace Vlingo.Symbio.Ado.Common
+namespace Vlingo.Xoom.Symbio.Ado.Common
 {
     public enum DatabaseType
     {

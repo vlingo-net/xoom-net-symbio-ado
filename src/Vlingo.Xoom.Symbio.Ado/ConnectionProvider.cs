@@ -8,7 +8,7 @@
 using System;
 using System.Data;
 
-namespace Vlingo.Symbio.Ado
+namespace Vlingo.Xoom.Symbio.Ado
 {
     public abstract class ConnectionProvider
     {    

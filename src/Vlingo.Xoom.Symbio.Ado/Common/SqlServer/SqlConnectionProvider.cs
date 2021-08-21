@@ -10,7 +10,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Security;
 
-namespace Vlingo.Symbio.Ado.Common.SqlServer
+namespace Vlingo.Xoom.Symbio.Ado.Common.SqlServer
 {
     /// <summary>
     /// Provider of <see cref="IDbConnection"/> instances.

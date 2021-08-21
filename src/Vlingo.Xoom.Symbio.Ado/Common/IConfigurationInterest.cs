@@ -7,7 +7,7 @@
 
 using System.Data;
 
-namespace Vlingo.Symbio.Ado.Common
+namespace Vlingo.Xoom.Symbio.Ado.Common
 {
     public interface IConfigurationInterest
     {

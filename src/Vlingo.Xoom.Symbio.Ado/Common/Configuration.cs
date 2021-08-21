@@ -6,17 +6,11 @@
 // one at https://mozilla.org/MPL/2.0/.
 
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
-using System.Text;
-using Vlingo.Xoom.Common;
-using Vlingo.Symbio.Ado.Common;
-using Vlingo.Symbio.Ado.Common.SqlServer;
-using Vlingo.Symbio.Ado.Common.SQLServer;
+using Vlingo.Xoom.Symbio.Ado.Common.SqlServer;
 using Vlingo.Xoom.Symbio.Store;
 
-namespace Vlingo.Symbio.Ado.Common
+namespace Vlingo.Xoom.Symbio.Ado.Common
 {
     /// <summary>
     /// A standard configuration for ADO connections used by

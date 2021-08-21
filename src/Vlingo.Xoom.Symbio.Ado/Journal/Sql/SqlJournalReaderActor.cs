@@ -8,13 +8,13 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using Vlingo.Xoom.Common;
-using Vlingo.Symbio.Ado.Common;
-using Vlingo.Xoom.Symbio.Store.Journal;
 using Vlingo.Xoom.Actors;
-using Vlingo.Xoom.Symbio;
+using Vlingo.Xoom.Common;
+using Vlingo.Xoom.Streams;
+using Vlingo.Xoom.Symbio.Ado.Common;
+using Vlingo.Xoom.Symbio.Store.Journal;
 
-namespace Vlingo.Symbio.Ado.Journal.Sql
+namespace Vlingo.Xoom.Symbio.Ado.Journal.Sql
 {
     public class SqlJournalReaderActor : Actor, IJournalReader
     {
@@ -37,6 +37,10 @@ namespace Vlingo.Symbio.Ado.Journal.Sql
         public ICompletes<string> Name => throw new NotImplementedException();
 
         public ICompletes<long> Size => throw new NotImplementedException();
+        public ICompletes<IStream> StreamAll()
+        {
+            throw new NotImplementedException();
+        }
 
         public void Close()
         {
