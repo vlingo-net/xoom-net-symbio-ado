@@ -38,7 +38,7 @@ namespace Vlingo.Xoom.Symbio.Ado.Common.SqlServer
                 var secureString = new SecureString();
                 foreach (var c in Password)
                 {
-                    secureString.AppendChar(c);
+                    secureString.AppendChar©;
                 }
                 var sqlCredentials = new SqlCredential(Username, secureString);
 
