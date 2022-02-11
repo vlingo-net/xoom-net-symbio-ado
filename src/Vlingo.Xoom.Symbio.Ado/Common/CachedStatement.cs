@@ -5,10 +5,9 @@
 // was not distributed with this file, You can obtain
 // one at https://mozilla.org/MPL/2.0/.
 
-namespace Vlingo.Xoom.Symbio.Ado.Common
-{
-    public class CachedStatement
-    {
+namespace Vlingo.Xoom.Symbio.Ado.Common;
 
-    }
+public class CachedStatement
+{
+
 }

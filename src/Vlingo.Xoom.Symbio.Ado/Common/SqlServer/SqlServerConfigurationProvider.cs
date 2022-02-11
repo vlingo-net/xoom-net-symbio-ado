@@ -9,60 +9,59 @@ using System;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace Vlingo.Xoom.Symbio.Ado.Common.SqlServer
+namespace Vlingo.Xoom.Symbio.Ado.Common.SqlServer;
+
+public class SqlServerConfigurationProvider : IConfigurationInterest
 {
-    public class SqlServerConfigurationProvider : IConfigurationInterest
-    {
-        public static IConfigurationInterest Interest => new SqlServerConfigurationProvider();
+    public static IConfigurationInterest Interest => new SqlServerConfigurationProvider();
         
-        public void AfterConnect(IDbConnection connection)
-        {
-        }
+    public void AfterConnect(IDbConnection connection)
+    {
+    }
 
-        public void BeforeConnect(Configuration configuration)
-        {
-        }
+    public void BeforeConnect(Configuration configuration)
+    {
+    }
 
-        public void CreateDatabase(IDbConnection sqlConnection, string databaseName)
+    public void CreateDatabase(IDbConnection sqlConnection, string databaseName)
+    {
+        try
         {
-            try
+            using (sqlConnection)
             {
-                using (sqlConnection)
-                {
-                    sqlConnection.Open();
-                    var createDatabaseQuery = "exec ('CREATE DATABASE ' + @databaseName)";
-                    var sqlCommand = new SqlCommand(createDatabaseQuery, (SqlConnection)sqlConnection);
-                    sqlCommand.Parameters.Add("@databaseName", SqlDbType.Text);
-                    sqlCommand.Parameters["@databaseName"].Value = databaseName;
-                    sqlCommand.ExecuteNonQuery();
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Sql Database {databaseName} count not be created because: {ex.Message}");
-                throw;
+                sqlConnection.Open();
+                var createDatabaseQuery = "exec ('CREATE DATABASE ' + @databaseName)";
+                var sqlCommand = new SqlCommand(createDatabaseQuery, (SqlConnection)sqlConnection);
+                sqlCommand.Parameters.Add("@databaseName", SqlDbType.Text);
+                sqlCommand.Parameters["@databaseName"].Value = databaseName;
+                sqlCommand.ExecuteNonQuery();
             }
         }
-
-        public void DropDatabase(IDbConnection sqlConnection, string databaseName)
+        catch (Exception ex)
         {
-            try
+            Console.WriteLine($"Sql Database {databaseName} count not be created because: {ex.Message}");
+            throw;
+        }
+    }
+
+    public void DropDatabase(IDbConnection sqlConnection, string databaseName)
+    {
+        try
+        {
+            using (sqlConnection)
             {
-                using (sqlConnection)
-                {
-                    sqlConnection.Open();
-                    var createDatabaseQuery = "exec ('DROP DATABASE ' + @databaseName)";
-                    var sqlCommand = new SqlCommand(createDatabaseQuery, (SqlConnection)sqlConnection);
-                    sqlCommand.Parameters.Add("@databaseName", SqlDbType.Text);
-                    sqlCommand.Parameters["@databaseName"].Value = databaseName;
-                    sqlCommand.ExecuteNonQuery();
-                }
+                sqlConnection.Open();
+                var createDatabaseQuery = "exec ('DROP DATABASE ' + @databaseName)";
+                var sqlCommand = new SqlCommand(createDatabaseQuery, (SqlConnection)sqlConnection);
+                sqlCommand.Parameters.Add("@databaseName", SqlDbType.Text);
+                sqlCommand.Parameters["@databaseName"].Value = databaseName;
+                sqlCommand.ExecuteNonQuery();
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Sql Database {databaseName} count not be dropped because: {ex.Message}");
-                throw;
-            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Sql Database {databaseName} count not be dropped because: {ex.Message}");
+            throw;
         }
     }
 }

@@ -8,37 +8,36 @@
 using System;
 using System.Data;
 
-namespace Vlingo.Xoom.Symbio.Ado
-{
-    public abstract class ConnectionProvider
-    {    
-        public ConnectionProvider(
-            string url,
-            string databaseName,
-            string username,
-            string password,
-            bool useSsl)
-        {
-            Url = url;
-            DatabaseName = databaseName;
-            Username = username;
-            Password = password;
-            UseSsl = useSsl;
-        }
+namespace Vlingo.Xoom.Symbio.Ado;
 
-        public string DatabaseName { get; }
-        public string Url { get; }
-        public string Username { get; }
-        public bool UseSsl { get; }
-        public string Password { get; }
-
-        /// <summary>
-        ///     Answer a new instance of a <see cref="IDbConnection" />
-        /// </summary>
-        /// <returns>A instance of <see cref="IDbConnection" /> connection</returns>
-        /// <exception cref="InvalidOperationException"></exception>
-        public abstract IDbConnection Connection();
-
-        public abstract ConnectionProvider CopyReplacing(string databaseName);
+public abstract class ConnectionProvider
+{    
+    public ConnectionProvider(
+        string url,
+        string databaseName,
+        string username,
+        string password,
+        bool useSsl)
+    {
+        Url = url;
+        DatabaseName = databaseName;
+        Username = username;
+        Password = password;
+        UseSsl = useSsl;
     }
+
+    public string DatabaseName { get; }
+    public string Url { get; }
+    public string Username { get; }
+    public bool UseSsl { get; }
+    public string Password { get; }
+
+    /// <summary>
+    ///     Answer a new instance of a <see cref="IDbConnection" />
+    /// </summary>
+    /// <returns>A instance of <see cref="IDbConnection" /> connection</returns>
+    /// <exception cref="InvalidOperationException"></exception>
+    public abstract IDbConnection Connection();
+
+    public abstract ConnectionProvider CopyReplacing(string databaseName);
 }

@@ -7,13 +7,12 @@
 
 using System.Data;
 
-namespace Vlingo.Xoom.Symbio.Ado.Common
+namespace Vlingo.Xoom.Symbio.Ado.Common;
+
+public interface IConfigurationInterest
 {
-    public interface IConfigurationInterest
-    {
-        void AfterConnect(IDbConnection connection);
-        void BeforeConnect(Configuration configuration);
-        void CreateDatabase(IDbConnection connection, string databaseName);
-        void DropDatabase(IDbConnection connection, string databaseName);
-    }
+    void AfterConnect(IDbConnection connection);
+    void BeforeConnect(Configuration configuration);
+    void CreateDatabase(IDbConnection connection, string databaseName);
+    void DropDatabase(IDbConnection connection, string databaseName);
 }

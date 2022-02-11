@@ -12,68 +12,67 @@ using Vlingo.Xoom.Common;
 using Vlingo.Xoom.Symbio.Store.Journal;
 using IDispatcher = Vlingo.Xoom.Symbio.Store.Dispatch.IDispatcher;
 
-namespace Vlingo.Xoom.Symbio.Ado.Journal.Sql
+namespace Vlingo.Xoom.Symbio.Ado.Journal.Sql;
+
+public class SqlJournalActor : Actor, IJournal<string>
 {
-    public class SqlJournalActor : Actor, IJournal<string>
+    public IJournal<string> Using<TActor>(Stage stage, IEnumerable<IDispatcher> dispatchers, params object[] additional) where TActor : Actor
     {
-        public IJournal<string> Using<TActor>(Stage stage, IEnumerable<IDispatcher> dispatchers, params object[] additional) where TActor : Actor
-        {
-            throw new NotImplementedException();
-        }
+        throw new NotImplementedException();
+    }
 
-        public void Append<TSource>(string streamName, int streamVersion, TSource source, IAppendResultInterest interest, object @object) where TSource : ISource
-        {
-            throw new NotImplementedException();
-        }
+    public void Append<TSource>(string streamName, int streamVersion, TSource source, IAppendResultInterest interest, object @object) where TSource : ISource
+    {
+        throw new NotImplementedException();
+    }
 
-        public void Append<TSource>(string streamName, int streamVersion, TSource source, Metadata metadata, IAppendResultInterest interest, object @object) where TSource : ISource
-        {
-            throw new NotImplementedException();
-        }
+    public void Append<TSource>(string streamName, int streamVersion, TSource source, Metadata metadata, IAppendResultInterest interest, object @object) where TSource : ISource
+    {
+        throw new NotImplementedException();
+    }
 
-        public void AppendAll<TSource>(string streamName, int fromStreamVersion, IEnumerable<ISource> sources, IAppendResultInterest interest, object @object) where TSource : ISource
-        {
-            throw new NotImplementedException();
-        }
+    public void AppendAll<TSource>(string streamName, int fromStreamVersion, IEnumerable<ISource> sources, IAppendResultInterest interest, object @object) where TSource : ISource
+    {
+        throw new NotImplementedException();
+    }
 
-        public void AppendAll<TSource>(string streamName, int fromStreamVersion, IEnumerable<ISource> sources, Metadata metadata, IAppendResultInterest interest, object @object) where TSource : ISource
-        {
-            throw new NotImplementedException();
-        }
+    public void AppendAll<TSource>(string streamName, int fromStreamVersion, IEnumerable<ISource> sources, Metadata metadata, IAppendResultInterest interest, object @object) where TSource : ISource
+    {
+        throw new NotImplementedException();
+    }
 
-        public void AppendAllWith<TSource, TSnapshotState>(string streamName, int fromStreamVersion, IEnumerable<ISource> sources, TSnapshotState snapshot, IAppendResultInterest interest, object @object) where TSource : ISource
-        {
-            throw new NotImplementedException();
-        }
+    public void AppendAllWith<TSource, TSnapshotState>(string streamName, int fromStreamVersion, IEnumerable<ISource> sources, TSnapshotState snapshot, IAppendResultInterest interest, object @object) where TSource : ISource
+    {
+        throw new NotImplementedException();
+    }
 
-        public void AppendAllWith<TSource, TSnapshotState>(string streamName, int fromStreamVersion, IEnumerable<ISource> sources, Metadata metadata, TSnapshotState snapshot, IAppendResultInterest interest, object @object) where TSource : ISource
-        {
-            throw new NotImplementedException();
-        }
+    public void AppendAllWith<TSource, TSnapshotState>(string streamName, int fromStreamVersion, IEnumerable<ISource> sources, Metadata metadata, TSnapshotState snapshot, IAppendResultInterest interest, object @object) where TSource : ISource
+    {
+        throw new NotImplementedException();
+    }
 
-        public void AppendWith<TSource, TSnapshotState>(string streamName, int streamVersion, TSource source, TSnapshotState snapshot, IAppendResultInterest interest, object @object) where TSource : ISource
-        {
-            throw new NotImplementedException();
-        }
+    public void AppendWith<TSource, TSnapshotState>(string streamName, int streamVersion, TSource source, TSnapshotState snapshot, IAppendResultInterest interest, object @object) where TSource : ISource
+    {
+        throw new NotImplementedException();
+    }
 
-        public void AppendWith<TSource, TSnapshotState>(string streamName, int streamVersion, TSource source, Metadata metadata, TSnapshotState snapshot, IAppendResultInterest interest, object @object) where TSource : ISource
-        {
-            throw new NotImplementedException();
-        }
+    public void AppendWith<TSource, TSnapshotState>(string streamName, int streamVersion, TSource source, Metadata metadata, TSnapshotState snapshot, IAppendResultInterest interest, object @object) where TSource : ISource
+    {
+        throw new NotImplementedException();
+    }
 
-        public ICompletes<IJournalReader?> JournalReader(string name)
-        {
-            throw new NotImplementedException();
-        }
+    public ICompletes<IJournalReader?> JournalReader(string name)
+    {
+        throw new NotImplementedException();
+    }
 
-        public ICompletes<IStreamReader?> StreamReader(string name)
-        {
-            throw new NotImplementedException();
-        }
+    public ICompletes<IStreamReader?> StreamReader(string name)
+    {
+        throw new NotImplementedException();
+    }
 
-        IJournal<string> IJournal<string>.Using<TActor>(Stage stage, IDispatcher dispatcher, params object[] additional)
-        {
-            throw new NotImplementedException();
-        }
+    IJournal<string> IJournal<string>.Using<TActor>(Stage stage, IDispatcher dispatcher, params object[] additional)
+    {
+        throw new NotImplementedException();
     }
 }

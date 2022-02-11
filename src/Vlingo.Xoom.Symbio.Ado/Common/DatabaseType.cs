@@ -5,12 +5,11 @@
 // was not distributed with this file, You can obtain
 // one at https://mozilla.org/MPL/2.0/.
 
-namespace Vlingo.Xoom.Symbio.Ado.Common
+namespace Vlingo.Xoom.Symbio.Ado.Common;
+
+public enum DatabaseType
 {
-    public enum DatabaseType
-    {
-        MySql,
-        Postgres,
-        SqlServer
-    }
+    MySql,
+    Postgres,
+    SqlServer
 }
