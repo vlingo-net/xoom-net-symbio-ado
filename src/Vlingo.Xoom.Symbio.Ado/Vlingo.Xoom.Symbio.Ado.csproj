@@ -31,8 +31,8 @@
         <None Include="..\..\LICENSE" Pack="true" PackagePath="" />
     </ItemGroup>
     <ItemGroup>
-      <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
-      <PackageReference Include="System.Data.SQLite.Core" Version="1.0.114.2" />
+      <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
+      <PackageReference Include="System.Data.SQLite.Core" Version="1.0.117" />
     </ItemGroup>
     <Choose>
         <When Condition="'$(Configuration)' == 'Debug With Project References'">
